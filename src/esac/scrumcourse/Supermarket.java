@@ -10,4 +10,6 @@ public class Supermarket {
 		Supermarket instance = new Supermarket();
 		
 	}
+	
+	
 }
