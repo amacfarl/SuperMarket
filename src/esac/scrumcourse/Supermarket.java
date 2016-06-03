@@ -1,15 +1,30 @@
 package esac.scrumcourse;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
 
 public class Supermarket {
+	
+	static RegisterMachine registerMachine;
 	
 	public static void main(String[] args) {
 		Supermarket instance = new Supermarket();
 		
+		registerMachine = new RegisterMachine();
+		instance.run();
 	}
 	
+	public void run() {
+		try {
+			String input = InputHandler.read();
+			String output = registerMachine.executeStep(input);
+			
+			OutputHandler.write(output);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
 }

@@ -1,12 +1,27 @@
 package esac.scrumcourse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegisterMachine {
 
+	List<Product> productsInStock;
+
 	public RegisterMachine() {
-		// TODO Auto-generated constructor stub
+		productsInStock = new ArrayList<Product>();
+		productsInStock.add(new ProductApple());
+		productsInStock.add(new ProductBanana());
+		productsInStock.add(new ProductCherry());
 	}
 
-	public static String executeStep(String inputStr) {
-		return inputStr;
+	public String executeStep(String inputStr) {
+		for(Product product : productsInStock) {
+			if(product.getName().equalsIgnoreCase(inputStr)) {
+				return Integer.toString(product.getCost());
+			}
+		}
+		
+		throw new IllegalArgumentException("Unrecognised product");
 	}
 }
+ 
