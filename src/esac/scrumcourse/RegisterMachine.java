@@ -6,22 +6,26 @@ import java.util.List;
 public class RegisterMachine {
 
 	List<Product> productsInStock;
+	Integer total;
 
 	public RegisterMachine() {
 		productsInStock = new ArrayList<Product>();
 		productsInStock.add(new ProductApple());
 		productsInStock.add(new ProductBanana());
 		productsInStock.add(new ProductCherry());
+		
+		// Initialise total
+		total = 0;
 	}
 
-	public String executeStep(String inputStr) {
+	public String addProduct(String inputStr) {
 		for(Product product : productsInStock) {
 			if(product.getName().equalsIgnoreCase(inputStr)) {
-				return Integer.toString(product.getCost());
+				total += product.getCost();
 			}
 		}
 		
-		throw new IllegalArgumentException("Unrecognised product");
+		return Integer.toString(total);
 	}
 }
  

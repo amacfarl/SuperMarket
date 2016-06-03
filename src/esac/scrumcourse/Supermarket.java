@@ -16,7 +16,7 @@ public class Supermarket {
 	public void run() {
 		try {
 			String input = InputHandler.read();
-			String output = registerMachine.executeStep(input);
+			String output = registerMachine.addProduct(input);
 			
 			OutputHandler.write(output);
 		} catch (IOException e) {
