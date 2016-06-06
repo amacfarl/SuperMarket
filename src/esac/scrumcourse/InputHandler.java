@@ -16,7 +16,7 @@ public class InputHandler {
 		InputStreamReader inputStreamReader = new InputStreamReader(System.in);
 		
 		int i;
-		while((i = inputStreamReader.read() )!= -1) {
+		while((i = inputStreamReader.read() )!= 10) {
 			sBuffer.append((char)i);
 		}
 		
